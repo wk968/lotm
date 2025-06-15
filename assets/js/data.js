@@ -357,82 +357,251 @@ const pathInfo = {
     },
 };
 
-const questions_zh = [
-    {
-        text: "面对未知的威胁，你会：",
-        options: [
-            {
-                text: "提前布置防御仪式",
-                paths: ["占卜家"],
-                score: 1
-            },
-            {
-                text: "打造针对性武器",
-                paths: ["学徒"],
-                score: 1
-            },
-            {
-                text: "隐藏在阴影中观察",
-                paths: ["偷盗者"],
-                score: 1
-            },
-            {
-                text: "直接外出寻找危险来源",
-                paths: ["偷盗者"],
-                score: 1
-            }
-        ]
-    },
-    {
-        text: "当你发现一个神秘的古代遗物时，你会：",
-        options: [
-            {
-                text: "用仪式占卜它的来历",
-                paths: ["占卜家"],
-                score: 1
-            },
-            {
-                text: "尝试解析它的机械结构",
-                paths: ["学徒"],
-                score: 1
-            },
-            {
-                text: "悄悄带走它研究",
-                paths: ["偷盗者"],
-                score: 1
-            },
-            {
-                text: "公开寻求专家帮助",
-                paths: ["占卜家", "学徒"],
-                score: 1
-            }
-        ]
-    },
-    {
-        text: "在团队中，你通常扮演什么角色？",
-        options: [
-            {
-                text: "预知危险并警告队友",
-                paths: ["占卜家"],
-                score: 1
-            },
-            {
-                text: "发明工具解决问题",
-                paths: ["学徒"],
-                score: 1
-            },
-            {
-                text: "暗中收集情报和信息",
-                paths: ["偷盗者"],
-                score: 1
-            },
-            {
-                text: "直接领导团队行动",
-                paths: ["占卜家", "学徒"],
-                score: 1
-            }
-        ]
-    }
+const questions_zh = 
+[
+  {
+    text: "当前往未知区域时，你更喜欢...",
+    options: [
+      { text: "使用地图、星象和自然标志导航", paths: ["水手", "猎人", "学徒"], score: 5 },
+      { text: "依靠直觉，相信自己的本能", paths: ["占卜家", "怪物", "秘祈人"], score: 6 },
+      { text: "低调融入并且谨慎地收集信息", paths: ["偷盗者", "刺客", "不眠者", "观众"], score: 4 },
+      { text: "大胆前行，遇到麻烦再处理", paths: ["战士", "罪犯", "歌颂者"], score: 4 }
+    ]
+  },
+  {
+    text: "如果你突然获得超常能力，会如何应对？",
+    options: [
+      { text: "仔细研究并尝试掌握控制方法", paths: ["学徒", "阅读者", "通识者"], score: 5 },
+      { text: "暗中测试能力", paths: ["不眠者", "刺客", "收尸人"], score: 4 },
+      { text: "随心所欲地使用", paths: ["怪物", "罪犯", "猎人"], score: 4 },
+      { text: "寻求他人帮助", paths: ["占卜家", "药师", "歌颂者"], score: 4 }
+    ]
+  },
+  {
+    text: "当阴暗的存在要求以代价换取知识时，你会...",
+    options: [
+      { text: "拒绝 —— 没有平衡的力量导致毁灭", paths: ["歌颂者", "战士", "仲裁人"], score: 4 },
+      { text: "接受 —— 知识永远值得付出代价", paths: ["阅读者", "收尸人", "窥秘人"], score: 5 },
+      { text: "想方设法诱骗知识而不支付代价。", paths: ["偷盗者", "刺客", "律师"], score: 4 },
+      { text: "谈判 —— 也是有转圜的余地", paths: ["秘祈人"], score: 5 }
+    ]
+  },
+  {
+    text: "在一片寂静中，你听到了不为人知真相的低语时，你...",
+    options: [
+      { text: "记录下来并重视这个启示", paths: ["占卜家", "秘祈人"], score: 5 },
+      { text: "置之不理", paths: ["战士", "歌颂者", "通识者"], score: 3 },
+      { text: "主动接纳寻求力量", paths: ["收尸人", "罪犯", "怪物", "窥秘人"], score: 4 },
+      { text: "尝试策略性利用这些信息", paths: ["观众", "学徒", "刺客"], score: 4 }
+    ]
+  },
+  {
+    text: "一个小镇集体遇上噩梦事件，你会...",
+    options: [
+      { text: "通过直觉调查源头", paths: ["占卜家", "秘祈人"], score: 5 },
+      { text: "寻找事件的逻辑 —— 一切都有合理的解释。", paths: ["阅读者", "通识者", "观众"], score: 4 },
+      { text: "暗中收集情报观察反应", paths: ["偷盗者", "不眠者", "刺客"], score: 4 },
+      { text: "联合镇民恢复秩序", paths: ["仲裁人", "歌颂者", "战士"], score: 4 }
+    ]
+  },
+  {
+    text: "你在森林发现一个没有知觉的伤者并且持有持神秘器物时，你会...",
+    options: [
+      { text: "救治伤者并了解遭遇", paths: ["药师", "歌颂者", "耕种者"], score: 5 },
+      { text: "优先研究器物奥秘", paths: ["阅读者", "收尸人", "占卜家"], score: 4 },
+      { text: "夺取器物并逃离现场", paths: ["偷盗者", "罪犯", "律师"], score: 5 },
+      { text: "呼叫支援并且警戒", paths: ["仲裁人", "战士", "水手"], score: 4 }
+    ]
+  },
+  {
+    text: "目睹熟人犯罪时，你的反应是...",
+    options: [
+      { text: "立即举报", paths: ["仲裁人", "歌颂者", "战士", "占卜家"], score: 5 },
+      { text: "静观其变分析动机", paths: ["不眠者", "猎人", "观众", "囚犯"], score: 6 },
+      { text: "留作把柄日后利用", paths: ["律师", "刺客", "罪犯"], score: 6 },
+      { text: "尝试感化对方", paths: ["药师", "秘祈人"], score: 6 }
+    ]
+  },
+  {
+    text: "你被要求领导特殊能力强大但不稳定的团队时，你会先...",
+    options: [
+      { text: "建立严格的管理制度", paths: ["仲裁人", "歌颂者", "战士"], score: 5 },
+      { text: "理解需求并获取忠诚", paths: ["药师", "秘祈人", "观众"], score: 6 },
+      { text: "测试每人能力的边界", paths: ["学徒", "收尸人"], score: 4 },
+      { text: "通过威胁来掌控局面", paths: ["刺客", "罪犯", "律师"], score: 4 }
+    ]
+  },
+  {
+    text: "你带领该团队在暴风雨海域航行时，你会负责...",
+    options: [
+      { text: "导航并稳定军心", paths: ["水手", "歌颂者", "战士", "观众"], score: 5 },
+      { text: "规划最优航线", paths: ["通识者", "阅读者", "学徒"], score: 4 },
+      { text: "凭直觉指引方向", paths: ["占卜家", "怪物", "水手"], score: 5 },
+      { text: "趁乱谋取私利", paths: ["罪犯", "刺客", "猎人"], score: 5 }
+    ]
+  },
+  {
+    text: "在一片迷雾中看见诡异的光亮时，你会...",
+    options: [
+      { text: "跟随直觉指引", paths: ["占卜家", "怪物"], score: 5 },
+      { text: "做标记谨慎探索", paths: ["猎人", "战士", "罪犯"], score: 5 },
+      { text: "发出信号求援", paths: ["水手", "不眠者"], score: 4 },
+      { text: "立即撤离危险", paths: ["学徒", "囚犯"], score: 6 }
+    ]
+  },
+  {
+    text: "你在遭遇海难后登陆了一座神秘岛屿，你会首先...",
+    options: [
+      { text: "观察天象海流寻找出路", paths: ["水手", "窥秘人"], score: 6 },
+      { text: "采集草药治疗伤员", paths: ["药师", "耕种者"], score: 5 },
+      { text: "趁夜色探索岛屿", paths: ["不眠者", "囚犯"], score: 6 },
+      { text: "尝试寻找材料制造通讯设备", paths: ["通识者", "律师"], score: 6 }
+    ]
+  },
+  {
+    text: "发现记载生死实验的日记后，你决定...",
+    options: [
+      { text: "秘密重现实验", paths: ["收尸人", "窥秘人"], score: 6 },
+      { text: "用于改良动植物", paths: ["耕种者", "药师"], score: 5 },
+      { text: "转化科研成果", paths: ["通识者", "律师"], score: 5 },
+      { text: "封印并设置防护措施", paths: ["不眠者", "囚犯"], score: 5 }
+    ]
+  },
+  {
+    text: "你正在目睹声势浩大的仪式，感觉有些......不对劲。你会怎么办...",
+    options: [
+      { text: "立即打断仪式", paths: ["仲裁人", "歌颂者", "战士"], score: 4 },
+      { text: "观察学习奥秘", paths: ["阅读者", "收尸人", "观众"], score: 4 },
+      { text: "暗中干扰结果", paths: ["刺客", "猎人", "律师"], score: 6 },
+      { text: "献祭自身加速进程", paths: ["秘祈人"], score: 6 }
+    ]
+  },
+  {
+    text: "一个陌生人递给你一封密封的信，上面用怪异的字体写着你的名字。你会怎么做？",
+    options: [
+      { text: "午夜时分再开启", paths: ["占卜家", "怪物", "秘祈人"], score: 5 },
+      { text: "立即解码查验", paths: ["阅读者", "学徒"], score: 5 },
+      { text: "以血为契验证", paths: ["秘祈人", "囚犯"], score: 6 },
+      { text: "上交权威鉴定", paths: ["仲裁人", "歌颂者"], score: 4 }
+    ]
+  },
+  {
+    text: "在睡梦中，一棵巨树轻声呼唤你的名字。醒来后你会做什么？",
+    options: [
+      { text: "解梦析兆", paths: ["窥秘人", "阅读者", "观众"], score: 5 },
+      { text: "尝试寻找对应地点", paths: ["耕种者", "药师", "通识者"], score: 5 },
+      { text: "做好准备 —— 这一定是冒险或危险的召唤。", paths: ["猎人", "罪犯"], score: 4 },
+      { text: "当作普通梦境遗忘", paths: ["偷盗者", "战士"], score: 3 }
+    ]
+  },
+  {
+    text: "你迷失在一个陌生的森林里，完全不记得自己是怎么抵达这里的。你该怎么办？",
+    options: [
+      { text: "分析环境寻找规律，找出自己的位置", paths: ["学徒", "通识者"], score: 5 },
+      { text: "跟随动植物的指引", paths: ["耕种者", "药师"], score: 4 },
+      { text: "相信直觉的引路", paths: ["怪物", "占卜家"], score: 6 },
+      { text: "登高处勘察地形", paths: ["战士", "刺客", "水手"], score: 5 }
+    ]
+  },
+  {
+    text: "你偶然进入一个陌生且荒废的图书馆，里面全是陌生的书籍。你会找什么？",
+    options: [
+      { text: "科技原理书籍", paths: ["通识者", "学徒"], score: 6 },
+      { text: "草药医疗典籍", paths: ["耕种者", "药师"], score: 5 },
+      { text: "心理学著作", paths: ["观众"], score: 5 },
+      { text: "古代律法文献", paths: ["仲裁人", "律师"], score: 6 }
+    ]
+  },
+  {
+    text: "无意中听到两个重要人物的私下谈话，你决定...",
+    options: [
+      { text: "记录以备后用", paths: ["律师", "偷盗者", "药师"], score: 6 },
+      { text: "分析肢体语言尝试找出隐藏的信息", paths: ["观众", "窥秘人"], score: 6 },
+      { text: "向当局报告", paths: ["仲裁人", "歌颂者"], score: 5 },
+      { text: "用作谈判筹码", paths: ["刺客", "罪犯"], score: 5 }
+    ]
+  },
+  {
+    text: "受邀加入秘密组织时，最吸引你的点会是...",
+    options: [
+      { text: "稀有知识资源", paths: ["阅读者", "窥秘人"], score: 6 },
+      { text: "幕后影响力", paths: ["律师"], score: 6 },
+      { text: "研发新理念", paths: ["通识者", "歌颂者"], score: 5 },
+      { text: "接触禁忌领域", paths: ["囚犯", "罪犯"], score: 5 }
+    ]
+  },
+  {
+    text: "你被给予资金用于实施一个项目，你会选择...",
+    options: [
+      { text: "创造生存能力超群生物", paths: ["耕种者", "通识者"], score: 6 },
+      { text: "建造能在海洋与天空之间穿梭的载具", paths: ["水手", "通识者"], score: 5 },
+      { text: "研制万能解毒剂", paths: ["药师", "收尸人"], score: 5 },
+      { text: "研究灵魂收容系统", paths: ["窥秘人", "不眠者"], score: 5 }
+    ]
+  },
+  {
+    text: "调解部落冲突时，你...",
+    options: [
+      { text: "抛硬币决定", paths: ["占卜家", "怪物"], score: 5 },
+      { text: "暗访收集情报", paths: ["观众", "刺客", "阅读者"], score: 5 },
+      { text: "公开投票裁决", paths: ["歌颂者", "战士", "仲裁人"], score: 4 },
+      { text: "要求比武解决", paths: ["囚犯", "罪犯"], score: 5 }
+    ]
+  },
+  {
+    text: "被诬陷犯罪时你的第一反应会是...",
+    options: [
+      { text: "冷静搜集证据", paths: ["仲裁人", "阅读者", "学徒"], score: 5 },
+      { text: "一笑置之离开", paths: ["偷盗者", "学徒"], score: 5 },
+      { text: "转移嫌疑目标", paths: ["刺客", "观众", "猎人"], score: 4 },
+      { text: "沉默等待真相", paths: ["囚犯", "死亡"], score: 6 }
+    ]
+  },
+  {
+    text: "朋友向你倾诉被噩梦困扰时，你...",
+    options: [
+      { text: "耐心倾听分析含义", paths: ["观众", "秘祈人"], score: 5 },
+      { text: "建议他们记录规律", paths: ["阅读者", "学徒"], score: 6 },
+      { text: "帮忙提供安神物品", paths: ["药师", "耕种者"], score: 5 },
+      { text: "彻夜给予陪伴守护", paths: ["不眠者", "战士"], score: 5 }
+    ]
+  },
+  {
+    text: "有人向你挑战决斗。你的准备是？",
+    options: [
+      { text: "学习并研究对手战术", paths: ["通识者", "阅读者"], score: 5 },
+      { text: "找借口回避", paths: ["学徒", "囚犯", "偷盗者", "收尸人"], score: 6 },
+      { text: "提前在竞技场布置陷阱", paths: ["猎人", "刺客"], score: 6 },
+      { text: "疯狂练习备战", paths: ["战士"], score: 5 }
+    ]
+  },
+  {
+    text: "面对致命枯萎病摧毁村子的农作物，你...",
+    options: [
+      { text: "科学分析病原", paths: ["通识者", "学徒"], score: 5 },
+      { text: "与植物沟通溯源", paths: ["耕种者"], score: 6 },
+      { text: "组织焚烧田地", paths: ["战士", "歌颂者"], score: 4 },
+      { text: "放任发展", paths: ["战士", "歌颂者"], score: 4 }
+    ]
+  },
+  {
+    text: "一场强风暴即将来临，你的应对策略是...",
+    options: [
+      { text: "组织人员避难", paths: ["仲裁人", "歌颂者", "不眠者"], score: 5 },
+      { text: "深入风暴中心", paths: ["水手", "战士"], score: 6 },
+      { text: "静待风暴过去", paths: ["不眠者", "窥秘人"], score: 4 },
+      { text: "趁乱潜入禁区", paths: ["偷盗者", "刺客", "学徒"], score: 5 }
+    ]
+  },
+  {
+    text: "面对一个神秘变化铭文的秘门，你...",
+    options: [
+      { text: "通过镜像复现符号变化来反向推导", paths: ["观众", "窥秘人"], score: 5 },
+      { text: "破译文字规律", paths: ["阅读者", "通识者"], score: 6 },
+      { text: "破坏符文源头", paths: ["学徒", "刺客"], score: 5 },
+      { text: "以血为祭尝试开门", paths: ["秘祈人", "窥秘人"], score: 6 }
+    ]
+  }
 ];
 
 const questions_en = 
@@ -448,7 +617,7 @@ const questions_en =
       {
         text: "Rely on your instincts and trust your gut.",
         paths: ["Seer", "Monster", "Secrets Supplicant"],
-        score: 4
+        score: 6
       },
       {
         text: "Blend in and gather information discreetly.",
@@ -507,7 +676,32 @@ const questions_en =
       },
       {
         text: "Negotiate — perhaps there's a middle ground.",
-        paths: ["Spectator", "Secrets Supplicant"],
+        paths: ["Secrets Supplicant"],
+        score: 5
+      }
+    ]
+  },
+  {
+    text: "In a moment of silence, you hear a voice whispering truths you never asked for. You...",
+    options: [
+      {
+        text: "Write them down and follow the insight — it feels important.",
+        paths: ["Seer", "Secrets Supplicant"],
+        score: 5
+      },
+      {
+        text: "Ignore it. Hallucinations aren't something to entertain.",
+        paths: ["Warrior", "Bard", "Savant"],
+        score: 3
+      },
+      {
+        text: "Embrace the voice — it might lead to power or forbidden knowledge.",
+        paths: ["Corpse Collector", "Criminal", "Monster", "Mystery Pryer"],
+        score: 4
+      },
+      {
+        text: "Use the information tactically, even if you don't understand it fully.",
+        paths: ["Spectator", "Apprentice", "Assassin"],
         score: 4
       }
     ]
@@ -553,36 +747,11 @@ const questions_en =
       {
         text: "Leave the person and take the artifact for your own ends.",
         paths: ["Marauder", "Criminal", "Lawyer"],
-        score: 3
+        score: 5
       },
       {
         text: "Alert others and take a defensive stance until help arrives.",
         paths: ["Arbiter", "Warrior", "Sailor"],
-        score: 4
-      }
-    ]
-  },
-  {
-    text: "In a moment of silence, you hear a voice whispering truths you never asked for. You...",
-    options: [
-      {
-        text: "Write them down and follow the insight — it feels important.",
-        paths: ["Seer", "Secrets Supplicant"],
-        score: 5
-      },
-      {
-        text: "Ignore it. Hallucinations aren't something to entertain.",
-        paths: ["Warrior", "Bard", "Savant"],
-        score: 3
-      },
-      {
-        text: "Embrace the voice — it might lead to power or forbidden knowledge.",
-        paths: ["Corpse Collector", "Criminal", "Monster", "Mystery Pryer"],
-        score: 4
-      },
-      {
-        text: "Use the information tactically, even if you don't understand it fully.",
-        paths: ["Spectator", "Apprentice", "Assassin"],
         score: 4
       }
     ]
@@ -598,17 +767,17 @@ const questions_en =
       {
         text: "Keep silent for now and observe their motives.",
         paths: ["Sleepless", "Hunter", "Spectator", "Prisoner"],
-        score: 4
+        score: 6
       },
       {
         text: "Use the knowledge to your advantage later.",
         paths: ["Lawyer", "Assassin", "Criminal"],
-        score: 4
+        score: 6
       },
       {
         text: "Try to convince them to change through emotion or belief.",
-        paths: ["Apothecary", "Secrets Supplicant", "Seer"],
-        score: 4
+        paths: ["Apothecary", "Secrets Supplicant"],
+        score: 6
       }
     ]
   },
@@ -623,11 +792,11 @@ const questions_en =
       {
         text: "Gain their loyalty by understanding their conditions.",
         paths: ["Apothecary", "Secrets Supplicant", "Spectator"],
-        score: 4
+        score: 6
       },
       {
         text: "Experiment with their abilities and push their limits.",
-        paths: ["Apprentice", "Savant", "Corpse Collector"],
+        paths: ["Apprentice", "Corpse Collector"],
         score: 4
       },
       {
@@ -652,13 +821,13 @@ const questions_en =
       },
       {
         text: "Trust your senses and guide by instinct.",
-        paths: ["Seer", "Monster"],
-        score: 6
+        paths: ["Seer", "Monster", "Sailor"],
+        score: 5
       },
       {
         text: "Use the chaos to test your own strength or exploit others.",
         paths: ["Criminal", "Assassin", "Hunter"],
-        score: 4
+        score: 5
       }
     ]
   },
@@ -678,12 +847,12 @@ const questions_en =
       {
         text: "Sing softly to let others know you're there.",
         paths: ["Sailor", "Sleepless"],
-        score: 4
+        score: 5
       },
       {
         text: "Turn back — nothing good ever comes from following strange lights.",
-        paths: ["Assassin", "Prisoner"],
-        score: 3
+        paths: ["Apprentice", "Prisoner"],
+        score: 6
       }
     ]
   },
@@ -703,12 +872,12 @@ const questions_en =
       {
         text: "Explore the island by night, trusting in your body's unnatural stamina",
         paths: ["Sleepless", "Prisoner"],
-        score: 5
+        score: 6
       },
       {
         text: "Try to build communication tools from debris and local materials",
         paths: ["Savant", "Lawyer"],
-        score: 5
+        score: 6
       }
     ]
   },
@@ -733,7 +902,7 @@ const questions_en =
       {
         text: "Lock the journal away and set up protective wards just in case",
         paths: ["Sleepless", "Prisoner"],
-        score: 4
+        score: 5
       }
     ]
   },
@@ -753,12 +922,12 @@ const questions_en =
       {
         text: "Try to subtly sabotage or redirect the outcome.",
         paths: ["Assassin", "Hunter", "Lawyer"],
-        score: 4
+        score: 6
       },
       {
-        text: "Follow your inner voice and leave the place, even if no one else sees the danger.",
-        paths: ["Seer", "Secrets Supplicant"],
-        score: 5
+        text: "Offer a personal sacrifice to speed up the process, even if it puts you at risk.",
+        paths: ["Secrets Supplicant"],
+        score: 6
       }
     ]
   },
@@ -766,8 +935,8 @@ const questions_en =
     text: "A stranger hands you a sealed letter with your name written in an unfamiliar script. What do you do?",
     options: [
       {
-        text: "Wait until night and consult the stars before opening it.",
-        paths: ["Seer", "Monster", "Secret"],
+        text: "Wait until night before opening it.",
+        paths: ["Seer", "Monster", "Secrets Supplicant"],
         score: 5
       },
       {
@@ -776,9 +945,9 @@ const questions_en =
         score: 5
       },
       {
-        text: "Toss it aside—it's probably a trick or a trap.",
-        paths: ["Marauder", "Criminal", "Prisoner"],
-        score: 4
+        text: "Let the letter absorb your blood before opening - only the worthy may read it",
+        paths: ["Secrets Supplicant", "Prisoner"],
+        score: 6
       },
       {
         text: "Bring it to a local authority to verify its origin.",
@@ -813,6 +982,131 @@ const questions_en =
     ]
   },
   {
+    text: "You're lost in a strange forest with no memory of how you got there. What do you do?",
+    options: [
+      {
+        text: "Look for patterns in the environment to figure out where you are.",
+        paths: ["Apprentice", "Savant"],
+        score: 5
+      },
+      {
+        text: "Pay attention to how the animals or plants react and follow them.",
+        paths: ["Planter", "Apothecary"],
+        score: 4
+      },
+      {
+        text: "Stay calm and trust your instincts to guide you.",
+        paths: ["Monster", "Seer"],
+        score: 6
+      },
+      {
+        text: "Climb the highest tree or hill to get your bearings.",
+        paths: ["Warrior", "Assassin", "Sailor"],
+        score: 5
+      }
+    ]
+  },
+  {
+    text: "You stumble into a strange library full of unfamiliar books. What do you look for?",
+    options: [
+      {
+        text: "Books on science or how things work.",
+        paths: ["Savant", "Apprentice"],
+        score: 6
+      },
+      {
+        text: "Guides on natural remedies and healing practices.",
+        paths: ["Planter", "Apothecary"],
+        score: 5
+      },
+      {
+        text: "Writings that reveal how people think and behave.",
+        paths: ["Spectator"],
+        score: 5
+      },
+      {
+        text: "Rules, laws, or codes from old civilizations.",
+        paths: ["Arbiter", "Lawyer"],
+        score: 6
+      }
+    ]
+  },
+  {
+    text: "You overhear two important people having a private conversation. What do you do?",
+    options: [
+      {
+        text: "Write down what you heard and consider how it might be useful later.",
+        paths: ["Lawyer", "Marauder", "Apothecary"],
+        score: 6
+      },
+      {
+        text: "Watch their body language to figure out what they're hiding.",
+        paths: ["Spectator", "Visionary"],
+        score: 6
+      },
+      {
+        text: "Report it to someone in charge who should know.",
+        paths: ["Arbiter", "Bard"],
+        score: 5
+      },
+      {
+        text: "Use the information to get leverage or protect yourself.",
+        paths: ["Assassin", "Criminal"],
+        score: 5
+      }
+    ]
+  },
+  {
+    text: "You're offered membership in a secret group. What's most appealing?",
+    options: [
+      {
+        text: "Access to rare knowledge and resources.",
+        paths: ["Reader", "Mystery Pryer"],
+        score: 6
+      },
+      {
+        text: "Having influence behind the scenes.",
+        paths: ["Lawyer"],
+        score: 6
+      },
+      {
+        text: "The chance to develop and test new ideas.",
+        paths: ["Savant", "Paragon"],
+        score: 5
+      },
+      {
+        text: "Getting involved in things others don't dare to explore.",
+        paths: ["Prisoner", "Criminal"],
+        score: 5
+      }
+    ]
+  },
+  {
+    text: "You're granted funding to pursue any one of the project — what do you choose?",
+    options: [
+      {
+        text: "Engineer a new form of life that can survive any climate",
+        paths: ["Planter", "Savant"],
+        score: 6
+      },
+      {
+        text: "Build a vessel that can travel between the sea and the sky",
+        paths: ["Sailor", "Savant"],
+        score: 5
+      },
+      {
+        text: "Craft a tonic to resist all known diseases and toxins",
+        paths: ["Apothecary", "Corpse Collector"],
+        score: 5
+      },
+      {
+        text: "Design a system to document and contain spirits safely",
+        paths: ["Mystery Pryer", "Sleepless"],
+        score: 5
+      }
+    ]
+  },
+  {
     text: "You're asked to judge a dispute between two communities. How do you decide?",
     options: [
       {
@@ -833,10 +1127,10 @@ const questions_en =
       {
         text: "Declare that both sides must resolve it through challenge.",
         paths: ["Prisoner", "Criminal"],
-        score: 4
+        score: 5
       }
     ]
-  },//Check Here
+  },
   {
     text: "Someone accuses you of a crime you didn't commit. Your first reaction is:",
     options: [
@@ -847,7 +1141,7 @@ const questions_en =
       },
       {
         text: "Laugh it off and vanish before things escalate.",
-        paths: ["Marauder", "Criminal"],
+        paths: ["Marauder", "Apprentice"],
         score: 5
       },
       {
@@ -856,214 +1150,39 @@ const questions_en =
         score: 4
       },
       {
-        text: "Summon a supernatural force to reveal the truth.",
-        paths: ["Seer", "Death", "Secrets Supplicant"],
-        score: 5
+        text: "Remain silence and wait for the truth to be revealed",
+        paths: ["Prisoner", "Death"],
+        score: 6
       }
     ]
   },
   {
-    text: "You're granted funding to pursue any one of the project — what do you choose?",
+    text: "A friend tells you they've been having recurring nightmares. How do you respond?",
     options: [
       {
-        text: "Engineer a new form of life that can survive any climate",
-        paths: ["Planter", "Savant"],
+        text: "Listen carefully and help them unpack the meaning.",
+        paths: ["Spectator", "Secrets Supplicant"],
+        score: 5
+      },
+      {
+        text: "Encourage them to write it down and track patterns.",
+        paths: ["Reader", "Apprentice"],
         score: 6
       },
       {
-        text: "Build a vessel that can travel between the sea and the sky",
-        paths: ["Sailor", "Lawyer"],
-        score: 5
-      },
-      {
-        text: "Craft a tonic to resist all known diseases and toxins",
-        paths: ["Apothecary", "Corpse Collector"],
-        score: 5
-      },
-      {
-        text: "Design a system to document and contain spirits safely",
-        paths: ["Mystery Pryer", "Sleepless"],
-        score: 5
-      }
-    ]
-  },
-  {
-    text: "A child falls gravely ill in a remote village. The villagers ask for your help. You...",
-    options: [
-      {
-        text: "Prepare herbal medicine and perform healing rituals rooted in moonlight traditions.",
-        paths: ["Apothecary", "Sleepless"],
-        score: 6
-      },
-      {
-        text: "Investigate the child's surroundings and examine unnatural symptoms scientifically.",
-        paths: ["Savant", "Mystery Pryer"],
-        score: 5
-      },
-      {
-        text: "Whisper an old sea chanty to calm the child and use water magic to stabilize them.",
-        paths: ["Sailor", "Bard"],
-        score: 4
-      },
-      {
-        text: "Search for any spiritual bindings or lingering souls causing the sickness.",
-        paths: ["Corpse Collector", "Prisoner"],
-        score: 5
-      }
-    ]
-  },
-  {
-    text: "You enter a vault containing ancient seeds and vials. What do you do first?",
-    options: [
-      {
-        text: "Analyze and crossbreed the seeds to create something entirely new.",
-        paths: ["Planter", "Savant"],
-        score: 6
-      },
-      {
-        text: "Test each vial to determine whether it heals or harms.",
-        paths: ["Apothecary", "Mystery Pryer"],
-        score: 5
-      },
-      {
-        text: "Take the most volatile ones and see how they react to ocean pressure.",
-        paths: ["Sailor", "Prisoner"],
-        score: 4
-      },
-      {
-        text: "Catalog the materials under proper international codes for sealed artifacts.",
-        paths: ["Lawyer", "Sleepless"],
-        score: 5
-      }
-    ]
-  },
-  {
-    text: "You're being watched by something invisible. How do you respond?",
-    options: [
-      {
-        text: "Lure it close by pretending to be unaware, then bind it with ghost-thread rituals.",
-        paths: ["Corpse Collector", "Sleepless"],
-        score: 5
-      },
-      {
-        text: "Use your crafted lenses to detect residual energies and document their movement.",
-        paths: ["Savant", "Mystery Pryer"],
-        score: 5
-      },
-      {
-        text: "Prepare potions with silver and mistleaf to force it into physical form.",
-        paths: ["Apothecary", "Prisoner"],
-        score: 6
-      },
-      {
-        text: "Call upon maritime protection chants and mark the doorway with sea salt.",
-        paths: ["Sailor", "Planter"],
-        score: 4
-      }
-    ]
-  },
-  {
-    text: "You're offered forbidden knowledge sealed by a dead civilization. You...",
-    options: [
-      {
-        text: "Decipher it carefully, ensuring every law and clause is still valid before using.",
-        paths: ["Lawyer", "Mystery Pryer"],
-        score: 6
-      },
-      {
-        text: "Use it to restore lost cures and refine healing concoctions.",
-        paths: ["Apothecary", "Savant"],
-        score: 5
-      },
-      {
-        text: "Embed the knowledge into an aquatic symbiote for preservation.",
-        paths: ["Sailor", "Planter"],
-        score: 4
-      },
-      {
-        text: "Bind it into your body through ritual, even if it changes you.",
-        paths: ["Prisoner", "Corpse Collector"],
-        score: 5
-      }
-    ]
-  },
-  {
-    text: "You're tasked with keeping watch over an ancient tree with a sleeping spirit inside.",
-    options: [
-      {
-        text: "Mix potions to maintain the soil and spirit's balance.",
+        text: "Help them find something soothing to ease their sleep.",
         paths: ["Apothecary", "Planter"],
         score: 5
       },
       {
-        text: "Study the tree's history and unlock the meaning behind its whispers.",
-        paths: ["Mystery Pryer", "Sleepless"],
-        score: 5
-      },
-      {
-        text: "Seal the area with legal glyphs and warding agreements enforced by oath.",
-        paths: ["Lawyer", "Savant"],
-        score: 6
-      },
-      {
-        text: "Connect the tree to distant waters to help it breathe better.",
-        paths: ["Sailor", "Prisoner"],
-        score: 4
-      }
-    ]
-  },
-  {
-    text: "You're lost in a dreamlike forest with no memory of how you arrived. What do you do?",
-    options: [
-      {
-        text: "Search for signs and patterns to map a way out.",
-        paths: ["Apprentice", "Savant"],
-        score: 5
-      },
-      {
-        text: "Ask the trees for guidance and follow the path they open.",
-        paths: ["Planter", "Apothecary"],
-        score: 4
-      },
-      {
-        text: "Let the dream unfold and try to take control of it from within.",
-        paths: ["Spectator", "Sleepless"],
-        score: 6
-      },
-      {
-        text: "Carve a direct path forward, ignoring illusions and obstacles.",
-        paths: ["Warrior", "Assassin"],
+        text: "Stay up with them at night to help them feel safe.",
+        paths: ["Sleepless", "Warrior"],
         score: 5
       }
     ]
   },
   {
-    text: "You overhear two nobles conspiring in secret. What is your first instinct?",
-    options: [
-      {
-        text: "Record everything and find the right leverage to use later.",
-        paths: ["Lawyer", "Marauder"],
-        score: 5
-      },
-      {
-        text: "Hypnotize them subtly to get them to confess more.",
-        paths: ["Spectator", "Visionary"],
-        score: 6
-      },
-      {
-        text: "Alert the local authority and help enforce order.",
-        paths: ["Arbiter", "Justiciar"],
-        score: 5
-      },
-      {
-        text: "Blackmail them using faked evidence and clever forgeries.",
-        paths: ["Assassin", "Criminal"],
-        score: 5
-      }
-    ]
-  },
-  {
-    text: "You're challenged to a duel. What kind of preparation do you make?",
+    text: "You're challenged to a duel. How do you prepare?",
     options: [
       {
         text: "Study your opponent's previous battles and build a strategy.",
@@ -1071,153 +1190,78 @@ const questions_en =
         score: 5
       },
       {
-        text: "Trust your instincts and prepare to adapt in the moment.",
-        paths: ["Monster", "Seer"],
-        score: 4
+        text: "Avoid the challenge entirely and find an excuse not to participate.",
+        paths: ["Apprentice", "Prisoner", "Marauder", "Corpse Collector"],
+        score: 6
       },
       {
-        text: "Hide traps and tricks around the battleground beforehand.",
+        text: "Set up the arena with traps and distractions beforehand.",
         paths: ["Hunter", "Assassin"],
         score: 6
       },
       {
         text: "Practice your technique relentlessly until the duel begins.",
-        paths: ["Warrior", "Twilight Giant"],
+        paths: ["Warrior"],
         score: 5
       }
     ]
   },
   {
-    text: "You discover a magical mirror that shows people's true intentions. How do you use it?",
+    text: "A blight is killing crops across the village. You:",
     options: [
       {
-        text: "Use it in secret to investigate criminals and manipulators.",
-        paths: ["Arbiter", "Spectator"],
+        text: "Analyze soil samples to develop a cure (Science)",
+        paths: ["Savant", "Apprentice"],
         score: 5
       },
       {
-        text: "Sell access to it for favors and influence.",
-        paths: ["Lawyer", "Marauder"],
+        text: "Commune with the plants to learn the blight's origin",
+        paths: ["Planter"], 
         score: 6
       },
       {
-        text: "Hide it away so no one can misuse its power.",
+        text: "Organize villagers to burn infected fields",
+        paths: ["Warrior", "Bard"],
+        score: 4
+      },
+      {
+        text: "Let it be - it is none of my business", 
+        paths: ["Warrior", "Bard"],
+        score: 4
+      }
+    ]
+  },
+  {
+    text: "There's a powerful storm coming. What's your response?",
+    options: [
+      {
+        text: "Coordinate people and get everyone to safety.",
+        paths: ["Arbiter", "Bard", "Sleepless"],
+        score: 5
+      },
+      {
+        text: "Go straight into the storm to help or observe closely.",
+        paths: ["Sailor", "Warrior"],
+        score: 6
+      },
+      {
+        text: "Find somewhere safe and use the time to reflect or plan.",
         paths: ["Sleepless", "Mystery Pryer"],
-        score: 5
-      },
-      {
-        text: "Channel its power through a ritual to awaken your latent sight.",
-        paths: ["Seer", "Supplicant"],
-        score: 4
-      }
-    ]
-  },
-  {
-    text: "A raging storm is destroying the coastline. What's your response?",
-    options: [
-      {
-        text: "Sail into the chaos to redirect the winds and calm the sea.",
-        paths: ["Sailor"],
-        score: 6
-      },
-      {
-        text: "Set up a system to evacuate people and enforce order.",
-        paths: ["Arbiter", "Bard"],
-        score: 5
-      },
-      {
-        text: "Use the confusion to sneak into a sealed temple revealed by the waves.",
-        paths: ["Marauder", "Mystery Pryer"],
-        score: 5
-      },
-      {
-        text: "Summon spirits of water to shield the town from destruction.",
-        paths: ["Corpse Collector", "Apothecary"],
-        score: 4
-      }
-    ]
-  },
-  {
-    text: "You're invited to join an elite secret society. What convinces you?",
-    options: [
-      {
-        text: "The rare access to long-lost knowledge and tomes.",
-        paths: ["Mystery Pryer", "Reader"],
-        score: 6
-      },
-      {
-        text: "A chance to sway world events from the shadows.",
-        paths: ["Lawyer", "Black Emperor"],
-        score: 5
-      },
-      {
-        text: "An opportunity to test and improve forbidden sciences.",
-        paths: ["Savant", "Paragon"],
-        score: 5
-      },
-      {
-        text: "The thrill of danger and whispered rituals.",
-        paths: ["Criminal", "Prisoner"],
-        score: 5
-      }
-    ]
-  },
-  {
-    text: "You stumble into a library that exists outside time. What do you seek?",
-    options: [
-      {
-        text: "Spells that alter fate and probability.",
-        paths: ["Monster", "Seer"],
-        score: 5
-      },
-      {
-        text: "Historical documents that explain ancient civilizations.",
-        paths: ["Reader", "Mystery Pryer"],
-        score: 6
-      },
-      {
-        text: "Knowledge about restoring or enhancing the body.",
-        paths: ["Planter", "Apothecary"],
-        score: 5
-      },
-      {
-        text: "The rules of divine contracts and celestial law.",
-        paths: ["Lawyer", "Arbiter"],
-        score: 5
-      }
-    ]
-  },
-  {
-    text: "You're given an unfamiliar artifact that pulses with a heartbeat. What do you do?",
-    options: [
-      {
-        text: "Bind it to your soul with a protective ritual.",
-        paths: ["Corpse Collector", "Prisoner"],
-        score: 5
-      },
-      {
-        text: "Take it to your lab and dissect it safely.",
-        paths: ["Savant", "Apothecary"],
-        score: 6
-      },
-      {
-        text: "Meditate with it and observe how it affects the world around you.",
-        paths: ["Seer", "Supplicant"],
         score: 4
       },
       {
-        text: "Sell it to someone powerful and extract long-term favors.",
-        paths: ["Lawyer", "Marauder"],
+        text: "Use the chaos to sneak in a place that's usually restricted.",
+        paths: ["Marauder", "Assassin", "Apprentice"],
         score: 5
       }
     ]
   },
   {
-    text: "You find a sealed door with a phrase that constantly changes. What is your method?",
+    text: "You find a sealed door with a symbol that constantly changes. What is your method?",
     options: [
       {
-        text: "Speak back to it in riddles and observe the result.",
-        paths: ["Spectator", "Visionary"],
+        text: "Try to open the seal by mirroring symbol pattern",
+        paths: ["Spectator", "Mystery Pryer"],
         score: 5
       },
       {
@@ -1231,33 +1275,8 @@ const questions_en =
         score: 5
       },
       {
-        text: "Pray to the forces behind the door and wait for revelation.",
-        paths: ["Supplicant", "Mystery Pryer"],
-        score: 4
-      }
-    ]
-  },
-  {
-    text: "A soul begs for rest but cannot leave the world. How do you help it?",
-    options: [
-      {
-        text: "Perform a sacred lullaby ritual until they sleep forever.",
-        paths: ["Sleepless", "Bard"],
-        score: 5
-      },
-      {
-        text: "Discover the injustice tying them to the world and correct it legally.",
-        paths: ["Arbiter", "Lawyer"],
-        score: 6
-      },
-      {
-        text: "Feed the soul into a lantern to fuel your own power.",
-        paths: ["Prisoner", "Corpse Collector"],
-        score: 5
-      },
-      {
-        text: "Create a new host body using plant and alchemical means.",
-        paths: ["Planter", "Apothecary"],
+        text: "Try to open the door with a blood sacrifice.",
+        paths: ["Secrets Supplicant", "Mystery Pryer"],
         score: 4
       }
     ]
