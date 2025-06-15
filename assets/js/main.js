@@ -404,7 +404,7 @@
 
 		// Initialize.
 		// Show default language (Chinese)
-		const defaultLang = localStorage.getItem('preferredLang') || 'zh';
+		const defaultLang = 'en';
 		currentLanguage = defaultLang;
 		
 		// Hide all language elements first
