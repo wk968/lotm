@@ -1,21 +1,6 @@
 <!DOCTYPE HTML>
 <!-- 
-Done-list
-=============================
-Add Start Screen logo
-Quiz function
-Scoring logic
-Fix Result Screen position
 
-To-do-list 
-======================
-Animated logo at Start screen?
-Quiz pool at least 50 ques?
-CSS White mist at the bottom 
-CSS overhaul for better effect
-Maybe potion icon/gif before result screen
-
-Add a button for incantation for current pathways
 -->
 <html>
 	<head>
@@ -38,7 +23,30 @@ Add a button for incantation for current pathways
 				<!-- Header -->
 				<header id="header">
 						<div class="logo">
-							<img class="resize" src="assets/images/Fool_Symbol-removebg-preview.png" alt="The Fool" />
+							<div class="logo-slideshow">
+								<img class="resize" src="assets/images/Fool_Symbol.png" alt="The Fool" />
+								<img class="resize" src="assets/images/Red_Priest_Symbol.png" alt="Red Priest" />
+								<img class="resize" src="assets/images/Paragon_Symbol.png" alt="Paragon" />
+								<img class="resize" src="assets/images/Mother_Symbol.png" alt="Mother" />
+								<img class="resize" src="assets/images/Moon_Symbol.png" alt="Moon" />
+								<img class="resize" src="assets/images/Hermit_Symbol.png" alt="Hermit" />
+								<img class="resize" src="assets/images/Hanged_Man_Symbol.png" alt="Hanged Man" />
+								<img class="resize" src="assets/images/Error_Symbol.png" alt="Error" />
+								<img class="resize" src="assets/images/Door_Symbol.png" alt="Door" />
+								<img class="resize" src="assets/images/Demoness_Symbol.png" alt="Demoness" />
+								<img class="resize" src="assets/images/Death_Symbol.png" alt="Death" />
+								<img class="resize" src="assets/images/Darkness_Symbol.png" alt="Darkness" />
+								<img class="resize" src="assets/images/Chained_Symbol.png" alt="Chained" />
+								<img class="resize" src="assets/images/Black_Emperor_Symbol.png" alt="Black Emperor" />
+								<img class="resize" src="assets/images/Sun_Symbol.png" alt="Sun" />
+								<img class="resize" src="assets/images/Twilight_Giant_Symbol.png" alt="Twilight Giant" />
+								<img class="resize" src="assets/images/Tyrant_Symbol.png" alt="Tyrant" />
+								<img class="resize" src="assets/images/Visionary_Symbol.png" alt="Visionary" />
+								<img class="resize" src="assets/images/Wheel_of_Fortune_Symbol.png" alt="Wheel of Fortune" />
+								<img class="resize" src="assets/images/White_Tower_Symbol.png" alt="White Tower" />
+								<img class="resize" src="assets/images/Abyss_Symbol.png" alt="Abyss" />
+								<img class="resize" src="assets/images/Justiciar_Symbol.png" alt="Justiciar" />
+							</div>
 						</div>
 						<div class="content">
 							<div class="inner" data-lang="zh">
@@ -85,17 +93,27 @@ Add a button for incantation for current pathways
 								<h3 id="result-path"></h3>
 								<p id="result-desc"></p>
 								<p id="result-rep"></p>
-								<button class="retry-btn">重新测试</button>
+								<div>
+									<img class="result-official representative-image"/>
+								</div>
+								<button class="retry-btn" data-lang="zh">重新测试</button>
 							</div>
 							<div id="result-container" class="inner" data-lang="en">
 								<h2>Your Beyonder Pathway</h2>
 								<h3 id="result-path"></h3>
 								<p id="result-desc"></p>
 								<p id="result-rep"></p>
-								<button class="retry-btn">Test Again</button>
+								<div>
+									<img class="result-official representative-image"/>
+								</div>
+								<button class="retry-btn" data-lang="en">Test Again</button>
 							</div>
 						</div>
 					</header>
+				</div>
+				<div>
+					<button class="coffee-btn" data-lang="zh" onclick="window.open('https://coff.ee/mitsukiii159', '_blank')">请我喝杯咖啡</button>
+					<button class="coffee-btn" data-lang="en" onclick="window.open('https://coff.ee/mitsukiii159', '_blank')">Buy Me a Coffee</button>
 				</div>
 			</div>
 		</div>

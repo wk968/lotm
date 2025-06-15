@@ -21,6 +21,27 @@
 		$startBtn = $('.start-btn'),
 		$optionsList=$('#options-container');
 	
+		// Logo slideshow functionality
+		let currentLogoIndex = 0;
+		const $logoImages = $('.logo-slideshow img');
+		
+		function initLogoSlideshow() {
+			// Set initial active image
+			$logoImages.eq(0).addClass('active');
+			
+			// Start slideshow
+			setInterval(() => {
+				$logoImages.removeClass('active');
+				currentLogoIndex = (currentLogoIndex + 1) % $logoImages.length;
+				$logoImages.eq(currentLogoIndex).addClass('active');
+			}, 2000); // Change image every 3 seconds
+		}
+		
+		// Initialize logo slideshow when document is ready
+		$(document).ready(function() {
+			initLogoSlideshow();
+		});
+
 		const languageData = {
 			en: {
 			  pageTitle: "Beyonder Pathways - Sequence Quiz",
@@ -108,7 +129,10 @@
 			container.find('#result-path').text(result.name);
 			$('#result-logo').attr('src', result.image); 
 			container.find('#result-desc').text(result.description);
-			container.find('#result-rep').text(result.representative); 
+			container.find('#result-rep').text(result.representative);
+			
+			// Add official representative image using rep_image attribute
+			container.find('.result-official').attr('src', result.rep_image);
 
 			// Display the result
 			
@@ -359,7 +383,10 @@
 				const lang = $(this).data('lang');
 				currentLanguage = lang;
 				document.title = languageData[lang].pageTitle;
-				$('[data-lang]:not(#language-switcher [data-lang])').hide();
+				
+				// Hide all language elements first
+				$('[data-lang]').not('.lang-btn').hide();
+				// Then show only the selected language elements
 				$('[data-lang="' + lang + '"]').not('.lang-btn').show();
 				
 				currentQuestion = 0;
@@ -367,26 +394,26 @@
 				showQuestion();
 				setTimeout(adjustButtonSizes(), 50);
 				localStorage.setItem('preferredLang', lang);
-				
 			});
 
 			$startBtn.on('click', function() {
 				$startScreen.hide();
-				$quizScreen.removeClass('hidden').show(); 
-				$bgm[0].volume = 0.2; 
-				$bgm[0].play();
-				initScores();
+				$quizScreen.show();
 				showQuestion();
-				setTimeout(adjustButtonSizes(), 50);
 			});
 
 		// Initialize.
 		// Show default language (Chinese)
-		const defaultLang = localStorage.getItem('preferredLang') || 'cn';
+		const defaultLang = localStorage.getItem('preferredLang') || 'zh';
 		currentLanguage = defaultLang;
+		
+		// Hide all language elements first
+		$('[data-lang]').not('.lang-btn').hide();
+		// Then show only the default language elements
 		$('[data-lang="' + defaultLang + '"]').not('.lang-btn').show();
+		
 		document.title = languageData[defaultLang].pageTitle;
-		$langButtons.filter('[data-lang="' + defaultLang + '"]').trigger("click");
+		$langButtons.filter('[data-lang="' + defaultLang + '"]').addClass('active');
 		$('#quiz-screen').hide();	
 		$('#result-screen').hide();
 

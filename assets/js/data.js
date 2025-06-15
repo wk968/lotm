@@ -159,7 +159,7 @@ const pathInfo = {
         image: "assets/images/Abyss_Symbol.png",
         description: "放纵欲望，化恶为刃。看似野兽，实为清醒的堕落者。",
         representative: "『魔鬼君主』法布提",
-        rep_image: "assets/images/.webp",
+        rep_image: "assets/images/Farbauti_Official.webp",
         art: "assets/images/Abyss_Official_Art.webp"
     },
     "怪物": {
@@ -336,7 +336,7 @@ const pathInfo = {
         image: "assets/images/Abyss_Symbol.png",
         description: "You're not evil… not completely. But when others restrain their desires, you sharpen yours. Power, hunger, pain — all of it is yours to command. You know the darkness within yourself, and instead of suppressing it, you've weaponized it. Yet some part of you — deep beneath the blood and fire — still remembers what it meant to care. That's what makes you dangerous. You are not a beast. You are a choice.",
         representative: "『Devil Monarch』Farbauti",
-        rep_image:"assets/images/.webp",
+        rep_image:"assets/images/Farbauti_Official.webp",
         art:"assets/images/Abyss_Official_Art.webp"
     },
     "Monster": {
