@@ -31,7 +31,19 @@ footer, header, hgroup, menu, nav, section {
 
 body {
 	line-height: 1;
+	background: #1b1f22;
 }
+
+	body.is-preload *, body.is-preload *:before, body.is-preload *:after {
+		-moz-animation: none !important;
+		-webkit-animation: none !important;
+		-ms-animation: none !important;
+		animation: none !important;
+		-moz-transition: none !important;
+		-webkit-transition: none !important;
+		-ms-transition: none !important;
+		transition: none !important;
+	}
 
 ol, ul {
 	list-style: none;
@@ -1097,15 +1109,6 @@ input, select, textarea {
 			cursor: default;
 			opacity: 0.25;
 		}
-
-	/* input[type="submit"],
-	input[type="reset"],
-	input[type="button"],
-	button {
-		line-height: calc(2.75rem - 2px);
-		margin-left: 1em;
-		margin-right: 1em;
-	} */
 	
 /* BG */
 
@@ -1855,4 +1858,201 @@ input, select, textarea {
     .representative-image {
         max-width: 150px;
     }
+}
+
+/* Mobile fixes for quiz screen */
+@media screen and (max-width: 736px) {
+	#quiz-screen {
+		padding: 0 15px;
+		box-sizing: border-box;
+	}
+	
+	#quiz-screen #main {
+		max-width: 100%;
+		width: 100%;
+		padding: 0;
+	}
+	
+	#question-text {
+		font-size: 1.2rem;
+		line-height: 1.4;
+		margin-bottom: 1.5rem;
+		word-wrap: break-word;
+		overflow-wrap: break-word;
+	}
+	
+	#options-container {
+		max-width: 100%;
+		padding: 0 5px;
+		width: 100%;
+		box-sizing: border-box;
+	}
+	
+	.option-btn {
+		width: 100% !important;
+		max-width: 100% !important;
+		box-sizing: border-box;
+		padding: 12px 15px;
+		font-size: 0.9rem;
+	}
+}
+
+@media screen and (max-width: 480px) {
+	#quiz-screen {
+		padding: 0 10px;
+	}
+	
+	#question-text {
+		font-size: 1.1rem;
+		margin-bottom: 1rem;
+	}
+	
+	#options-container {
+		padding: 0;
+		gap: 8px;
+	}
+	
+	.option-btn {
+		padding: 10px 12px;
+		font-size: 0.85rem;
+		min-height: 44px; /* Better touch target */
+	}
+}
+
+/* Mobile fixes for result screen */
+@media screen and (max-width: 736px) {
+	#result-screen {
+		margin-top: 5%;
+		min-height: auto;
+		padding: 20px 15px;
+		box-sizing: border-box;
+	}
+	
+	#result-screen #wrapper {
+		display: flex;
+		flex-direction: column;
+		min-height: 100vh;
+	}
+	
+	#result-screen #main {
+		flex: 1;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+	}
+	
+	#result-screen .coffee-btn {
+		position: relative;
+		z-index: 10;
+		margin-top: 2rem;
+		width: 100%;
+		max-width: 200px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+}
+
+@media screen and (max-width: 480px) {
+	#result-screen {
+		padding: 15px 10px;
+		margin-top: 2%;
+	}
+	
+	#result-screen #main {
+		padding: 0;
+	}
+	
+	.representative-image {
+		margin: 0.5rem auto;
+		max-width: 120px;
+	}
+	
+	#result-screen .coffee-btn {
+		margin-top: 1.5rem;
+		font-size: 0.8rem;
+		padding: 8px 12px;
+	}
+}
+
+/* Mobile overflow prevention */
+@media screen and (max-width: 768px) {
+	html, body {
+		overflow-x: hidden;
+		width: 100%;
+		max-width: 100vw;
+	}
+	
+	#wrapper {
+		overflow-x: hidden;
+		width: 100%;
+		max-width: 100vw;
+	}
+	
+	/* Ensure quiz screen content doesn't overflow */
+	#quiz-screen {
+		overflow-x: hidden;
+		width: 100%;
+		max-width: 100vw;
+	}
+	
+	#quiz-screen #main {
+		overflow-x: hidden;
+		width: 100%;
+		max-width: 100vw;
+	}
+	
+	/* Ensure result screen content doesn't overflow */
+	#result-screen {
+		overflow-x: hidden;
+		width: 100%;
+		max-width: 100vw;
+	}
+	
+	#result-screen #wrapper {
+		overflow-x: hidden;
+		width: 100%;
+		max-width: 100vw;
+	}
+}
+
+@media screen and (max-width: 736px) {
+	#result-screen .logo {
+		margin-top: 2.5rem;
+		margin-bottom: 1.5rem;
+	}
+	.representative-image {
+		margin: 1.5rem auto 1.5rem auto;
+		max-width: 150px;
+	}
+	#result-screen .coffee-btn {
+		margin-top: 2.5rem;
+		margin-bottom: 10.5rem;
+	}
+	.retry-btn {
+		display: block;
+		margin: 2.5rem auto 0 auto;
+		width: 100%;
+		max-width: 200px;
+	}
+}
+
+@media screen and (max-width: 480px) {
+	#result-screen .logo {
+		margin-top: 1.5rem;
+		margin-bottom: 1rem;
+	}
+	.representative-image {
+		margin: 1rem auto 1rem auto;
+		max-width: 120px;
+	}
+	#result-screen .coffee-btn {
+		margin-top: 3rem;
+		margin-bottom: 3rem;
+	}
+	.retry-btn {
+		display: block;
+		margin: 5rem auto 0 auto;
+		width: 100%;
+		max-width: 200px;
+	}
 }

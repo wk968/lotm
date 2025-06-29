@@ -163,6 +163,9 @@
 			const buttons = document.querySelectorAll('.option-btn');
 			let maxHeight = 0;
 			
+			// Check if we're on mobile
+			const isMobile = window.innerWidth <= 768;
+			
 			// First pass - calculate natural sizes
 			buttons.forEach(btn => {
 			  // Reset to natural state for measurement
@@ -189,23 +192,34 @@
 			  const naturalWidth = parseInt(btn.dataset.naturalWidth);
 			  const naturalHeight = parseInt(btn.dataset.naturalHeight);
 			  
-			  // Width adjustment logic
-			  if (naturalWidth > containerWidth * 0.9) {
+			  // Mobile-specific handling
+			  if (isMobile) {
+				// On mobile, always use full width and allow text wrapping
 				btn.style.width = '100%';
 				btn.style.whiteSpace = 'normal';
-			  } else {
-				btn.style.width = `${naturalWidth + 48}px`; // Content width + padding
-				btn.style.whiteSpace = 'nowrap';
-			  }
-			  
-			  // Height adjustment logic
-			  if (btn.style.whiteSpace === 'normal') {
-				// For wrapped text, use natural height + padding
 				btn.style.height = 'auto';
-				btn.style.minHeight = `${maxHeight + 24}px`; // Ensure consistent minimum height
+				btn.style.minHeight = '44px'; // Better touch target
+				btn.style.boxSizing = 'border-box';
 			  } else {
-				// For single-line buttons, use consistent height
-				btn.style.height = `${maxHeight + 24}px`;
+				// Desktop handling - original logic
+				// Width adjustment logic
+				if (naturalWidth > containerWidth * 0.9) {
+				  btn.style.width = '100%';
+				  btn.style.whiteSpace = 'normal';
+				} else {
+				  btn.style.width = `${naturalWidth + 48}px`; // Content width + padding
+				  btn.style.whiteSpace = 'nowrap';
+				}
+				
+				// Height adjustment logic
+				if (btn.style.whiteSpace === 'normal') {
+				  // For wrapped text, use natural height + padding
+				  btn.style.height = 'auto';
+				  btn.style.minHeight = `${maxHeight + 24}px`; // Ensure consistent minimum height
+				} else {
+				  // For single-line buttons, use consistent height
+				  btn.style.height = `${maxHeight + 24}px`;
+				}
 			  }
 			  
 			  // Add smooth transition
@@ -416,6 +430,17 @@
 		$langButtons.filter('[data-lang="' + defaultLang + '"]').addClass('active');
 		$('#quiz-screen').hide();	
 		$('#result-screen').hide();
+		
+		// Add window resize listener for mobile responsiveness
+		$window.on('resize', function() {
+			// Debounce the resize event
+			clearTimeout(window.resizeTimeout);
+			window.resizeTimeout = setTimeout(function() {
+				if ($('#quiz-screen').is(':visible')) {
+					adjustButtonSizes();
+				}
+			}, 250);
+		});
 
 })(jQuery);
 
